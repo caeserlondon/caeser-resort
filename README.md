@@ -2,6 +2,9 @@
 
 A modern, responsive hotel management application built with React, TanStack Query, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
 
+🔗 Live Demo: (Add Vercel link when deployed)
+🐙 GitHub: [github.com/caeserlondon/caeser-resort](https://github.com/caeserlondon/caeser-resort)
+
 ### ✨ Features
 
 Booking Management: View, create, update, and cancel reservations
@@ -20,3 +23,20 @@ Backend: Supabase (PostgreSQL, Authentication, Row-Level Security)
 Charts: Recharts
 Styling: CSS Modules / styled components
 Deployment: Vercel
+
+### 📊 Charts & Analytics
+
+Powered by Recharts, the dashboard includes:
+
+Daily/weekly occupancy rate
+Revenue over time
+Booking status distribution (confirmed, checked-in, checked-out)
+🧪 Testing & Sample Data
+The app includes a “Seed Data” utility (like your Uploader component) to populate the database with realistic test bookings, guests, and cabins for demo purposes.
+
+📄 License
+MIT © Caeser London
+
+### 🙌 Feedback & Contributions
+
+Feel free to open an issue or PR! This project is part of my portfolio as a Full Stack Developer focused on accessible, user-centred applications.
