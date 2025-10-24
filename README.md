@@ -3,7 +3,6 @@
 A modern, responsive hotel management application built with React, TanStack Query, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
 
 🔗 Live Demo: (Add Vercel link when deployed)
-🐙 GitHub: [github.com/caeserlondon/caeser-resort](https://github.com/caeserlondon/caeser-resort)
 
 ### ✨ Features
 
