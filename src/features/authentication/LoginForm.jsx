@@ -57,11 +57,9 @@ function LoginForm() {
 
 			<FormRowVertical>
 				<hr />
-				<h3>For testing:</h3>
+				<h2>For testing:</h2>
 				<p>Please use test@test.com</p>
-				<p>
-					and <span>12345678</span> as a password to sign in.
-				</p>
+				<p>12345678 as a password to sign in.</p>
 			</FormRowVertical>
 		</Form>
 	);

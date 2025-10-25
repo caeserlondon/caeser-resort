@@ -5,6 +5,7 @@ import Button from '../ui/Button';
 import { subtractDates } from '../utils/helpers';
 
 import { useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 import { bookings } from './data-bookings';
 import { cabins } from './data-cabins';
 import { guests } from './data-guests';
@@ -120,7 +121,7 @@ function Uploader() {
 		queryClient.invalidateQueries({ queryKey: ['bookings'] });
 		queryClient.invalidateQueries({ queryKey: ['cabins'] });
 		queryClient.invalidateQueries({ queryKey: ['guests'] });
-
+		toast.success('Data uploaded successfully Please refresh the page.');
 		setIsLoading(false);
 	}
 
@@ -129,7 +130,7 @@ function Uploader() {
 		await deleteBookings();
 		await createBookings();
 		queryClient.invalidateQueries({ queryKey: ['bookings'] });
-
+		toast.success('Data uploaded successfully Please refresh the page.');
 		setIsLoading(false);
 	}
 
@@ -140,13 +141,15 @@ function Uploader() {
 				backgroundColor: 'DarkYellow',
 				padding: '8px',
 				borderRadius: '5px',
+				// border: 'dashed red',
+				border: '4mm ridge rgb(186 142 30 / 0.6)',
 				textAlign: 'center',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '8px',
 			}}
 		>
-			<h3>SAMPLE DATA</h3>
+			<h3>Please upload SAMPLE DATA</h3>
 
 			<Button onClick={uploadAll} disabled={isLoading}>
 				Upload ALL
