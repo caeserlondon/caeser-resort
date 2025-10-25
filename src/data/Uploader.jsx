@@ -130,7 +130,7 @@ function Uploader() {
 		await deleteBookings();
 		await createBookings();
 		queryClient.invalidateQueries({ queryKey: ['bookings'] });
-		toast.success('Data uploaded successfully Please refresh the page.');
+		toast.success('Data uploaded successfully, Please refresh the page.');
 		setIsLoading(false);
 	}
 
