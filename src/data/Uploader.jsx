@@ -107,30 +107,45 @@ function Uploader() {
 
 	async function uploadAll() {
 		setIsLoading(true);
-		// Bookings need to be deleted FIRST
-		await deleteBookings();
-		await deleteGuests();
-		await deleteCabins();
 
-		// Bookings need to be created LAST
-		await createGuests();
-		await createCabins();
-		await createBookings();
+		try {
+			// Bookings need to be deleted FIRST
+			await deleteBookings();
+			await deleteGuests();
+			await deleteCabins();
 
-		// Invalidate all relevant queries
-		queryClient.invalidateQueries({ queryKey: ['bookings'] });
-		queryClient.invalidateQueries({ queryKey: ['cabins'] });
-		queryClient.invalidateQueries({ queryKey: ['guests'] });
-		toast.success('Data uploaded successfully Please refresh the page.');
-		setIsLoading(false);
+			// Bookings need to be created LAST
+			await createGuests();
+			await createCabins();
+			await createBookings();
+
+			// Invalidate all relevant queries
+			queryClient.invalidateQueries({ queryKey: ['bookings'] });
+			queryClient.invalidateQueries({ queryKey: ['cabins'] });
+			queryClient.invalidateQueries({ queryKey: ['guests'] });
+			queryClient.invalidateQueries({ queryKey: ['today-activity'] });
+			toast.success('Data uploaded successfully.');
+		} catch (err) {
+			console.error(err);
+			toast.error('Failed to upload data. Check console for details.');
+		} finally {
+			setIsLoading(false);
+		}
 	}
-
 	async function uploadBookings() {
-		setIsLoading(true);
-		await deleteBookings();
-		await createBookings();
-		queryClient.invalidateQueries({ queryKey: ['bookings'] });
-		toast.success('Data uploaded successfully, Please refresh the page.');
+		try {
+			setIsLoading(true);
+			await deleteBookings();
+			await createBookings();
+			queryClient.invalidateQueries({ queryKey: ['bookings'] });
+			queryClient.invalidateQueries({ queryKey: ['today-activity'] });
+			toast.success('Data uploaded successfully.');
+		} catch (err) {
+			console.error(err);
+			toast.error('Failed to upload data. Check console for details.');
+		} finally {
+			setIsLoading(false);
+		}
 		setIsLoading(false);
 	}
 
@@ -149,7 +164,7 @@ function Uploader() {
 				gap: '8px',
 			}}
 		>
-			<h3>Please upload SAMPLE DATA</h3>
+			<h3>Restore the Data</h3>
 
 			<Button onClick={uploadAll} disabled={isLoading}>
 				Upload ALL
