@@ -2,7 +2,7 @@
 
 ### Hotel Management App with Dashboard
 
-A modern, responsive hotel management application built with React, Next, TanStack Query, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
+A modern, responsive hotel management application built with React, TanStack Query, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
 
 🔗 Live Demo: <https://caeser-resort.vercel.app>
 
