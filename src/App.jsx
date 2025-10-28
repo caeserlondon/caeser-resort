@@ -3,7 +3,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import Head from 'next/head';
 import { DarkModeProvider } from './context/DarkModeContext';
 import Account from './pages/Account';
 import Booking from './pages/Booking';
@@ -31,10 +30,6 @@ const queryClient = new QueryClient({
 function App() {
 	return (
 		<DarkModeProvider>
-			<Head>
-				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
-				<meta name='description' content='Caeser Resort' />
-			</Head>
 			<QueryClientProvider client={queryClient}>
 				<ReactQueryDevtools initialIsOpen={false} />
 
