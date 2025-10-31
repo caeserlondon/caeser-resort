@@ -1,13 +1,13 @@
-<div align="left" style="display: flex; align-items: center; gap: 20px;">
-  <h1>Caeser's Resort</h1>
+<!-- <div align="left" style="display: flex; align-items: center; gap: 20px;"> -->
   <img src="public/logo-dark.png" alt="Caeser resort logo" width="200" />
-</div>
 
 ## Hotel Management App with Dashboard
 
 A modern, responsive hotel management application built with React, TanStack Query, PostgreSQL, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
 
 🔗 Live Demo: <https://caeser-resort.vercel.app>
+
+  <img src="public/caeser-resort.png" alt="Caeser resort logo" width="200" />
 
 ### ✨ Features
 
