@@ -174,7 +174,39 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 1px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-600);
+  border-radius: 9px;
+  opacity: 0.1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 input,
 button,
