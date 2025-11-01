@@ -164,7 +164,7 @@ function Uploader() {
 				gap: '8px',
 			}}
 		>
-			<h3>Restore the Data</h3>
+			<h3>UPLOAD DATA </h3>
 
 			<Button onClick={uploadAll} disabled={isLoading}>
 				Upload ALL
