@@ -191,7 +191,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color-brand-600);
+  background-color: var(--color-brand-500);
   border-radius: 9px;
   opacity: 0.1;
 }
