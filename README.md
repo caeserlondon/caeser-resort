@@ -7,7 +7,8 @@ A modern, responsive hotel management application built with React, TanStack Que
 
 🔗 Live Demo: <https://caeser-resort.vercel.app>
 
-  <img src="public/caeser-resort.png" alt="Caeser resort logo" width="450" />
+  <img src="public/caeser-resort-dark.png" alt="Caeser resort dashboard dark" width="450" />
+  <img src="public/caeser-resort-light.png" alt="Caeser resort dashboard light" width="450" />
 
 ### ✨ Features
 
