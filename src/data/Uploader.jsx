@@ -16,30 +16,30 @@ import { guests } from './data-guests';
 //   breakfastPrice: 15,
 // };
 
-async function deleteGuests() {
-	const { error } = await supabase.from('guests').delete().gt('id', 0);
-	if (error) console.log(error.message);
-}
+// async function deleteGuests() {
+// 	const { error } = await supabase.from('guests').delete().gt('id', 0);
+// 	if (error) console.log(error.message);
+// }
 
-async function deleteCabins() {
-	const { error } = await supabase.from('cabins').delete().gt('id', 0);
-	if (error) console.log(error.message);
-}
+// async function deleteCabins() {
+// 	const { error } = await supabase.from('cabins').delete().gt('id', 0);
+// 	if (error) console.log(error.message);
+// }
 
-async function deleteBookings() {
-	const { error } = await supabase.from('bookings').delete().gt('id', 0);
-	if (error) console.log(error.message);
-}
+// async function deleteBookings() {
+// 	const { error } = await supabase.from('bookings').delete().gt('id', 0);
+// 	if (error) console.log(error.message);
+// }
 
 async function createGuests() {
 	const { error } = await supabase.from('guests').insert(guests);
 	if (error) console.log(error.message);
 }
 
-async function createCabins() {
-	const { error } = await supabase.from('cabins').insert(cabins);
-	if (error) console.log(error.message);
-}
+// async function createCabins() {
+// 	const { error } = await supabase.from('cabins').insert(cabins);
+// 	if (error) console.log(error.message);
+// }
 
 async function createBookings() {
 	// Bookings need a guestId and a cabinId. We can't tell Supabase IDs for each object, it will calculate them on its own. So it might be different for different people, especially after multiple uploads. Therefore, we need to first get all guestIds and cabinIds, and then replace the original IDs in the booking data with the actual ones from the DB
@@ -109,22 +109,19 @@ function Uploader() {
 		setIsLoading(true);
 
 		try {
-			// Bookings need to be deleted FIRST
-			await deleteBookings();
-			await deleteGuests();
-			await deleteCabins();
+			// 🔥 RESET DATABASE (FOR DEV AND TEST ONLY)
+			const { error } = await supabase.rpc('dev_reset_all_data');
+			if (error) throw error;
 
-			// Bookings need to be created LAST
+			// 🌱 SEED DATA
 			await createGuests();
-			await createCabins();
 			await createBookings();
 
 			// Invalidate all relevant queries
 			queryClient.invalidateQueries({ queryKey: ['bookings'] });
-			queryClient.invalidateQueries({ queryKey: ['cabins'] });
 			queryClient.invalidateQueries({ queryKey: ['guests'] });
 			queryClient.invalidateQueries({ queryKey: ['today-activity'] });
-			toast.success('Data uploaded successfully.');
+			toast.success('Database reset & seeded successfully');
 		} catch (err) {
 			console.error(err);
 			toast.error('Failed to upload data. Check console for details.');
@@ -132,22 +129,22 @@ function Uploader() {
 			setIsLoading(false);
 		}
 	}
-	async function uploadBookings() {
-		try {
-			setIsLoading(true);
-			await deleteBookings();
-			await createBookings();
-			queryClient.invalidateQueries({ queryKey: ['bookings'] });
-			queryClient.invalidateQueries({ queryKey: ['today-activity'] });
-			toast.success('Data uploaded successfully.');
-		} catch (err) {
-			console.error(err);
-			toast.error('Failed to upload data. Check console for details.');
-		} finally {
-			setIsLoading(false);
-		}
-		setIsLoading(false);
-	}
+	// async function uploadBookings() {
+	// 	try {
+	// 		setIsLoading(true);
+	// 		await deleteBookings();
+	// 		await createBookings();
+	// 		queryClient.invalidateQueries({ queryKey: ['bookings'] });
+	// 		queryClient.invalidateQueries({ queryKey: ['today-activity'] });
+	// 		toast.success('Data uploaded successfully.');
+	// 	} catch (err) {
+	// 		console.error(err);
+	// 		toast.error('Failed to upload data. Check console for details.');
+	// 	} finally {
+	// 		setIsLoading(false);
+	// 	}
+	// 	setIsLoading(false);
+	// }
 
 	return (
 		<div
@@ -167,12 +164,12 @@ function Uploader() {
 			<h3>UPLOAD DATA </h3>
 
 			<Button onClick={uploadAll} disabled={isLoading}>
-				Upload ALL
+				Reset Data
 			</Button>
 
-			<Button onClick={uploadBookings} disabled={isLoading}>
+			{/* <Button onClick={uploadBookings} disabled={isLoading}>
 				Upload bookings ONLY
-			</Button>
+			</Button> */}
 		</div>
 	);
 }
