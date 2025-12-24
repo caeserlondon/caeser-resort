@@ -3,7 +3,7 @@
 
 ## Resort Management App with Dashboard
 
-A modern, responsive hotel management application built with React, TanStack Query, PostgreSQL, Supabase, and Recharts. Helps hotel staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
+A modern, responsive resort management application built with React, TanStack Query, PostgreSQL, Supabase, and Recharts. Helps resort staff manage bookings, guests, cabins, and daily operations, all from a single intuitive dashboard.
 
 🔗 Live Demo: <https://caeser-resort.vercel.app>
 
