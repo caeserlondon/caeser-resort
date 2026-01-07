@@ -57,7 +57,9 @@ function TodayActivity() {
 						))}
 					</TodayList>
 				) : (
-					<NoActivity>No activity today... Please UPLOAD DATA</NoActivity>
+					<NoActivity>
+						No activity today... Please click UPLOAD DATA button
+					</NoActivity>
 				)
 			) : (
 				<Spinner />
